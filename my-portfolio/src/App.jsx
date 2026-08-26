@@ -126,8 +126,29 @@ function App() {
         }
       `}</style>
 
+      {/* Top Fixed Nav Bar - Compact & Positioned Top-Right */}
+      <nav className="fixed top-3 right-3 sm:right-6 px-3 py-2 rounded-full flex items-center gap-2 sm:gap-5 shadow-xl z-50 backdrop-blur-md bg-[#ff2e4a] text-white border border-[#ff2e4a]/40 shadow-[#ff2e4a]/20 transition-all duration-300">
+        <div className="flex gap-2.5 sm:gap-5 items-center">
+          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} className="transition font-medium text-xs sm:text-sm tracking-wide text-white/90 hover:text-white hover:scale-105">
+              {item}
+            </a>
+          ))}
+        </div>
+
+        <div className="w-[1px] h-4 bg-white/30"></div>
+
+        <button 
+          onClick={toggleTheme}
+          className="px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium transition flex items-center gap-1 bg-black/20 hover:bg-black/40 text-white cursor-pointer"
+          title="Toggle Theme"
+        >
+          {theme === 'dark' ? '☀️' : '🌙'}
+        </button>
+      </nav>
+
       {/* Hero Section */}
-      <section id="home" className="flex flex-col items-center justify-center min-h-screen p-6 text-center pt-20">
+      <section id="home" className="flex flex-col items-center justify-center min-h-screen p-6 text-center pt-28">
         <div className="relative mb-8 animate-float">
           <div className="absolute -inset-2 bg-gradient-to-r from-[#ff2e4a] to-purple-600 rounded-full blur-xl opacity-40 animate-pulse"></div>
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-4 border-[#ff2e4a] overflow-hidden shadow-[0_0_50px_rgba(255,46,74,0.3)]">
@@ -148,15 +169,15 @@ function App() {
 
         <div className="flex gap-8 sm:gap-16 mb-10">
           <div className="text-center">
-            <h3 className="text-3xl font-bold">2+</h3>
-            <p className="text-sm text-gray-500">Years Experience</p>
+            <h3 className="text-3xl font-bold">02</h3>
+            <p className="text-sm text-gray-500">Months Experience</p>
           </div>
           <div className="text-center">
-            <h3 className="text-3xl font-bold">15+</h3>
+            <h3 className="text-3xl font-bold">05+</h3>
             <p className="text-sm text-gray-500">Projects Done</p>
           </div>
           <div className="text-center">
-            <h3 className="text-3xl font-bold">10+</h3>
+            <h3 className="text-3xl font-bold">04+</h3>
             <p className="text-sm text-gray-500">Happy Clients</p>
           </div>
         </div>
@@ -483,27 +504,6 @@ function App() {
 
         </div>
       </footer>
-
-      {/* Floating Bottom Nav */}
-      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-[#ff2e4a] px-6 py-3 rounded-full flex items-center gap-4 sm:gap-8 shadow-[0_10px_30px_rgba(255,46,74,0.5)] z-50">
-        <div className="flex gap-4 sm:gap-8 items-center">
-          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-white hover:text-black transition font-semibold text-xs sm:text-base tracking-wide">
-              {item}
-            </a>
-          ))}
-        </div>
-
-        <div className="w-[1px] h-5 bg-white/40"></div>
-
-        <button 
-          onClick={toggleTheme}
-          className="bg-black/30 hover:bg-black/50 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition flex items-center gap-1.5 cursor-pointer"
-          title="Toggle Theme"
-        >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
-      </nav>
 
     </div>
   );
